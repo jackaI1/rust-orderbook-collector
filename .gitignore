@@ -1,1 +1,5 @@
 /target/
+/.superpowers/
+/output/
+*.sbe
+.DS_Store

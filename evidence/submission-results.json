@@ -1,0 +1,98 @@
+{
+  "verified_local_date": "2026-10-27",
+  "platform": "macOS arm64",
+  "rust_cargo": "1.99.1",
+  "automated": {
+    "ordinary_rust_tests": 187,
+    "failed": 0,
+    "explicit_release_scale_fixtures": 2,
+    "python_tests": 26,
+    "format_check": "passed",
+    "strict_all_target_clippy": "passed",
+    "real_minute_shutdown": {
+      "passed": true,
+      "elapsed_seconds": 61.27,
+      "websocket_close_observed": true,
+      "decoded_records": 4,
+      "child_reaped": true,
+      "fixture_ports_released": true
+    }
+  },
+  "commands": [
+    "cargo test --locked",
+    "cargo fmt --all -- --check",
+    "cargo clippy --locked --all-targets -- -D warnings",
+    "python3 -I -m unittest discover -s tests -p 'test_*.py'",
+    "cargo test --locked --release --test scale --test disconnect_scale -- --ignored --nocapture --test-threads=1",
+    "python3 scripts/verify_shutdown.py --verify-minute"
+  ],
+  "scale": {
+    "streamed_snapshots": {
+      "symbols": 554212,
+      "replicas": 2,
+      "book_depth": "empty; shared subscription catalogs",
+      "minute_pass_seconds": [
+        0.182,
+        0.183
+      ],
+      "peak_rss_bytes": 690077696,
+      "scope_excludes": [
+        "populated-depth memory",
+        "network transport",
+        "SBE serialization"
+      ]
+    },
+    "indexed_disconnect": {
+      "catalog_symbols": 555000,
+      "populated_symbols": 34000,
+      "nonempty_replica_books": 68000,
+      "affected_symbols_visited_and_emitted": 17000,
+      "seconds": 0.006111,
+      "peak_rss_bytes": 253607936
+    }
+  },
+  "live_final_implementation": {
+    "scope": "one market-ID seed plus global new_market hints; small-scope validation only",
+    "maximum_assets": 42,
+    "replicas": 2,
+    "collection_seconds": 211.43,
+    "warm_promotions": 4,
+    "filtered_query_sweeps": 4,
+    "minute_records": [
+      26,
+      26,
+      34
+    ],
+    "minute_missing": [
+      0,
+      0,
+      0
+    ],
+    "minute_ordering_errors": 0,
+    "decoded_records": 6108,
+    "exit_code": 0,
+    "all_observed_health_samples_initialized": true
+  },
+  "live_earlier_broad_run": {
+    "implementation": "before final recovery corrections",
+    "complete_discovery_pages": 2713,
+    "market_records": 271277,
+    "canonical_candidate_ids": 542344,
+    "unresolved_market_records": 44,
+    "peak_health_ready_ratio": 0.996783342812193,
+    "longest_observed_at_least_95_percent_seconds": 540.018,
+    "nonempty_minute_batches": 15,
+    "all_decoded_counts_matched": true,
+    "minute_ordering_errors": 0,
+    "warm_promotions": 0,
+    "outcome": "coverage gaps; failed sustained readiness"
+  },
+  "sustained_final_full_universe_coverage": "unverified",
+  "limits": [
+    "No documented contiguous feed sequence or checksum guarantee",
+    "Pre-book buffer overflow disconnects the whole physical source",
+    "Backpressured refresh may delay global subscription work",
+    "Initial discovery may take tens of minutes",
+    "OS flush is not fsync durability"
+  ]
+}

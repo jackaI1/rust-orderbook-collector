@@ -1,0 +1,12 @@
+{"at_ms":1000,"universe":["demo-yes"]}
+{"at_ms":1001,"source":0,"frame":{"event_type":"book","asset_id":"demo-yes","timestamp":"1000","bids":[{"price":"0.4","size":"5"}],"asks":[{"price":"0.6","size":"8"}]}}
+{"at_ms":1002,"source":1,"frame":{"event_type":"book","asset_id":"demo-yes","timestamp":"1001","bids":[{"price":"0.4","size":"6"}],"asks":[{"price":"0.6","size":"8"}]}}
+{"at_ms":2000,"source":0,"frame":{"event_type":"price_change","timestamp":"2000","price_changes":[{"asset_id":"demo-yes","side":"BUY","price":"0.4","size":"3"}]}}
+{"at_ms":2001,"source":1,"frame":{"event_type":"price_change","timestamp":"2000","price_changes":[{"asset_id":"demo-yes","side":"BUY","price":"0.4","size":"3"}]}}
+{"at_ms":2002,"disconnect":0}
+{"at_ms":3000,"source":1,"frame":{"event_type":"price_change","timestamp":"3000","price_changes":[{"asset_id":"demo-yes","side":"BUY","price":"0.4","size":"0"}]}}
+{"at_ms":61000,"tick":true}
+{"at_ms":62000,"source":1,"frame":{"event_type":"price_change","timestamp":"62000","price_changes":[{"asset_id":"demo-yes","side":"SELL","price":"0.6","size":"7.125"}]}}
+{"at_ms":121000,"tick":true}
+{"at_ms":122000,"source":1,"frame":{"event_type":"book","asset_id":"demo-yes","timestamp":"122000","bids":[{"price":"0.45","size":"2"}],"asks":[]}}
+{"at_ms":123000,"universe":[]}
