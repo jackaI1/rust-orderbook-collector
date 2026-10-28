@@ -218,9 +218,8 @@ class AuditTests(unittest.TestCase):
         import contextlib
         import tempfile
         from unittest.mock import patch
-        evidence = Path(__file__).resolve().parents[1] / 'evidence/catalog-audit-v8'
         for denied in [False, True]:
-            with tempfile.TemporaryDirectory(dir=evidence) as directory:
+            with tempfile.TemporaryDirectory() as directory:
                 calls=[]
                 def open_page(request, timeout):
                     endpoint = urllib.parse.urlsplit(request.full_url).path
